@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <ApolloExample msg="Welcome to Your Vue.js App" />
+    <register/>
   </div>
 </template>
 
 <script>
 import ApolloExample from './components/ApolloExample.vue';
+import Register from './components/Register.vue';
 
 export default {
   name: 'app',
   components: {
-    ApolloExample,
+    // ApolloExample,
+    Register,
   },
 };
 </script>
