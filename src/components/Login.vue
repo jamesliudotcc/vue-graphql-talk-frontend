@@ -1,7 +1,6 @@
 <template>
-  <div class="register">
+  <div class="login">
     <form action="POST">
-      <input v-model="name" type="text" name="name" id="name" placeholder="Name">
       <input v-model="email" type="email" name="email" id="email" placeholder="Email">
       <input
         v-model="password"
@@ -10,36 +9,34 @@
         id="password"
         placeholder="Password"
       >
-      <button v-on:click.prevent="register" type="submit">Register</button>
+      <button v-on:click.prevent="login" type="submit">Login</button>
     </form>
   </div>
 </template>
 
 <script>
-import REGISTER from '../graphql/Register.gql';
+import LOGIN from '../graphql/Login.gql';
 // import gql from 'graphql-tag';
 
 export default {
-  name: 'Register',
+  name: 'Login',
   data() {
     return {
-      name: '',
       email: '',
       password: '',
     };
   },
   methods: {
-    async register() {
+    async login() {
       const result = await this.$apollo.mutate({
-        mutation: REGISTER,
+        mutation: LOGIN,
         variables: {
           email: this.email,
-          name: this.name,
           password: this.password,
         },
       });
       console.log(result);
-      localStorage['apollo-token'] = result.data.register.token;
+      localStorage['apollo-token'] = result.data.login.token;
     },
   },
 };
