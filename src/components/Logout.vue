@@ -22,6 +22,7 @@ export default {
   methods: {
     async logout() {
       localStorage.removeItem('apollo-token');
+      this.$emit('input', false);
     },
   },
 };

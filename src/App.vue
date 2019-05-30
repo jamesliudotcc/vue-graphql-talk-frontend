@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <register/>
-    <login/>
-    <logout/>
-    <div v-if="localStorage['apollo-token']">
+    <register v-model="loggedIn"/>
+    <login v-model="loggedIn"/>
+    <logout v-model="loggedIn"/>
+    <div v-if="loggedIn">
       <secret/>
     </div>
   </div>
@@ -24,6 +24,11 @@ export default {
     Logout,
     Register,
     Secret,
+  },
+  data() {
+    return {
+      loggedIn: false,
+    };
   },
 };
 </script>

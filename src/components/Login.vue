@@ -37,6 +37,8 @@ export default {
       });
       console.log(result);
       localStorage['apollo-token'] = result.data.login.token;
+      this.$emit('input', true);
+      // TODO: Add error handling for bad credentials
     },
   },
 };
