@@ -5,12 +5,14 @@
     <logout v-model="loggedIn"/>
     <div v-if="loggedIn">
       <secret/>
+      <house/>
     </div>
   </div>
 </template>
 
 <script>
 // import ApolloExample from './components/ApolloExample.vue';
+import House from './components/House.vue';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 import Logout from './components/Logout.vue';
@@ -20,6 +22,7 @@ export default {
   name: 'app',
   components: {
     // ApolloExample,
+    House,
     Login,
     Logout,
     Register,

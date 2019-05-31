@@ -37,7 +37,7 @@ export default {
       });
       console.log(result);
       localStorage['apollo-token'] = result.data.login.token;
-      this.$emit('input', true);
+      this.$emit('input', true); // this pattern feels slightly hacky?
       // TODO: Add error handling for bad credentials
     },
   },

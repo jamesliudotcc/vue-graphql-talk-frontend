@@ -1,0 +1,6 @@
+mutation createHouse($name: String!) {
+  createHouse(name: $name) {
+    name
+    users
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="secret">
-    <p>Heloo</p>
+    <p>{{secret}}</p>
     <!-- <button v-on:click.prevent="get-secret" > -->
   </div>
 </template>
@@ -13,6 +13,27 @@ export default {
     secret: gql`
       query {
         secret
+      }
+    `,
+    user: gql`
+      # match to name on query.
+      query {
+        user {
+          name
+          houses {
+            id
+            name
+            users
+            items {
+              id
+              name
+              stores {
+                id
+                name
+              }
+            }
+          }
+        }
       }
     `,
   },
