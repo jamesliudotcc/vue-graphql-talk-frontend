@@ -1,0 +1,18 @@
+query {
+  user {
+    name
+    houses {
+      id
+      name
+      users
+      items {
+        id
+        name
+        stores {
+          id
+          name
+        }
+      }
+    }
+  }
+}

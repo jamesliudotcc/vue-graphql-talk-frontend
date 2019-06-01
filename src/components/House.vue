@@ -14,30 +14,11 @@
 import gql from 'graphql-tag';
 
 import CREATEHOUSE from '../graphql/CreateHouse.gql';
+import USER from '../graphql/User.gql';
 export default {
   name: 'House',
   apollo: {
-    user: gql`
-      # match apollo object to name on query.
-      query {
-        user {
-          name
-          houses {
-            id
-            name
-            users
-            items {
-              id
-              name
-              stores {
-                id
-                name
-              }
-            }
-          }
-        }
-      }
-    `,
+    user: USER,
   },
 
   data: function() {
