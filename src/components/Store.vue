@@ -27,6 +27,7 @@ export default {
   methods: {
     addStore() {
       if (!this.newStore) return;
+
       this.$apollo
         .mutate({
           mutation: CREATESTORE,

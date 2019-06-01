@@ -25,6 +25,8 @@ export default {
   },
   methods: {
     addHouse() {
+      if (!this.newHouse) return;
+
       this.$apollo
         .mutate({
           mutation: CREATEHOUSE,
@@ -35,6 +37,7 @@ export default {
         .then(() => {
           console.log('hi');
           this.$apollo.queries.user.refetch();
+          this.newHouse = '';
         });
     },
   },
