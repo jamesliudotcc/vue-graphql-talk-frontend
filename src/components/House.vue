@@ -13,6 +13,7 @@
 <script>
 import CREATEHOUSE from '../graphql/CreateHouse.gql';
 import USER from '../graphql/User.gql';
+
 export default {
   name: 'House',
   apollo: {
@@ -23,9 +24,8 @@ export default {
     return { newHouse: '' };
   },
   methods: {
-    async addHouse() {
-      // TODO: Add call to GQL.
-      const result = await this.$apollo
+    addHouse() {
+      this.$apollo
         .mutate({
           mutation: CREATEHOUSE,
           variables: {
