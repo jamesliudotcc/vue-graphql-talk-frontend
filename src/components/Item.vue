@@ -3,6 +3,15 @@
     <!--  -->
     <hr>Item Component
     <form>
+      <h6>House</h6>
+      <select name="select-house" id="select-house" v-model="whichHouse">
+        <option
+          v-for="house in user.houses"
+          :value="house.id"
+          :key="`house-${house.id}`"
+        >{{house.name}}</option>
+      </select>
+      <h6>Store</h6>
       <li v-for="store in stores" :key="`store-${store.id}`">
         <input
           type="checkbox"
@@ -31,6 +40,7 @@ export default {
     return {
       newItem: '',
       whichStores: [],
+      whichHouse: 0,
     };
   },
 };
