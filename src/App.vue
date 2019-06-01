@@ -9,7 +9,7 @@
       <secret/>
       <house/>
       <store/>
-      <item/>
+      <add-item/>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ import Login from './components/Login.vue';
 import Logout from './components/Logout.vue';
 import Secret from './components/Secret.vue';
 import Store from './components/Store.vue';
-import Item from './components/Item.vue';
+import AddItem from './components/AddItem.vue';
 
 export default {
   name: 'app',
@@ -34,7 +34,7 @@ export default {
     Register,
     Secret,
     Store,
-    Item,
+    AddItem,
   },
   data() {
     return {

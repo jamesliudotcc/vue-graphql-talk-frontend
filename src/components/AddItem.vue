@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  -->
-    <hr>Item Component
+    <hr>Add Item Component
     <form>
       <h6>House</h6>
       <select name="select-house" id="select-house" v-model="whichHouse">
@@ -34,7 +34,7 @@ import STORES from '../graphql/Stores.gql';
 import CREATEITEM from '../graphql/CreateItem.gql';
 
 export default {
-  name: 'Item',
+  name: 'AddItem',
   apollo: {
     user: USER,
     stores: STORES,
