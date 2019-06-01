@@ -2,8 +2,8 @@
   <div id="app">
     <register v-model="loggedIn"/>
     <login v-model="loggedIn"/>
-    <logout v-model="loggedIn"/>
     <div v-if="loggedIn">
+      <logout v-model="loggedIn"/>
       <secret/>
       <house/>
     </div>

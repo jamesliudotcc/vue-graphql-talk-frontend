@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul>
-      <li v-for="house in houses" v-bind:key="`house-${house}`">{{house.name}}</li>
+      <li v-for="house in user.houses" v-bind:key="`house-${house}`">{{house.name}}</li>
     </ul>
     <form>
       <input type="text" placeholder="Add House" v-model="newHouse">
-      <button v-on:click.prevent="addHouse">Submit</button>
+      <button v-on:click.prevent="addHouse" type="submit">Submit</button>
     </form>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   name: 'House',
   apollo: {
     user: gql`
-      # match apollo object property to name on query.
+      # match apollo object to name on query.
       query {
         user {
           name
@@ -39,11 +39,7 @@ export default {
       }
     `,
   },
-  computed: {
-    houses: function() {
-      return this.user.houses;
-    },
-  },
+
   data: function() {
     return { newHouse: '' };
   },
@@ -51,6 +47,12 @@ export default {
     async addHouse() {
       console.log(`add house ${this.newHouse}`);
       // TODO: Add call to GQL.
+      const result = await this.$apollo.mutate({
+        mutation: CREATEHOUSE,
+        variables: {
+          name: this.newHouse,
+        },
+      });
     },
   },
 };
