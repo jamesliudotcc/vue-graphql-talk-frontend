@@ -38,7 +38,6 @@ export default {
           password: this.password,
         },
       });
-      console.log(result);
       localStorage['apollo-token'] = result.data.register.token;
       this.$emit('input', true); // this pattern feels slightly hacky?
       // TODO: Add error handling for bad credentials

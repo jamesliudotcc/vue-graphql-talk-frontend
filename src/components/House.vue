@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     async addHouse() {
-      console.log(`add house ${this.newHouse}`);
       // TODO: Add call to GQL.
       const result = await this.$apollo.mutate({
         mutation: CREATEHOUSE,
