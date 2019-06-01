@@ -1,11 +1,14 @@
 <template>
   <div id="app">
-    <register v-model="loggedIn"/>
-    <login v-model="loggedIn"/>
+    <div v-if="!loggedIn">
+      <register v-model="loggedIn"/>
+      <login v-model="loggedIn"/>
+    </div>
     <div v-if="loggedIn">
       <logout v-model="loggedIn"/>
       <secret/>
       <house/>
+      <store/>
     </div>
   </div>
 </template>
@@ -17,6 +20,7 @@ import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 import Logout from './components/Logout.vue';
 import Secret from './components/Secret.vue';
+import Store from './components/Store.vue';
 
 export default {
   name: 'app',
@@ -27,6 +31,7 @@ export default {
     Logout,
     Register,
     Secret,
+    Store,
   },
   data() {
     return {

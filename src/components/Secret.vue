@@ -1,7 +1,6 @@
 <template>
   <div class="secret">
     <p>{{secret}}</p>
-    <!-- <button v-on:click.prevent="get-secret" > -->
   </div>
 </template>
 

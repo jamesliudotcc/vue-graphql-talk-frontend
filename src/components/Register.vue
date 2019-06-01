@@ -1,13 +1,13 @@
 <template>
   <div class="register">
     <form action="POST">
-      <input v-model="name" type="text" name="name" id="name" placeholder="Name">
-      <input v-model="email" type="email" name="email" id="email" placeholder="Email">
+      <input v-model="name" type="text" name="name" id="register-name" placeholder="Name">
+      <input v-model="email" type="email" name="email" id="register-email" placeholder="Email">
       <input
         v-model="password"
         type="password"
         name="password"
-        id="password"
+        id="register-password"
         placeholder="Password"
       >
       <button v-on:click.prevent="register" type="submit">Register</button>
