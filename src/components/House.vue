@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="house in user.houses" v-bind:key="`house-${house}`">{{house.name}}</li>
+      <li v-for="house in user.houses" v-bind:key="`house-${house.id}`">{{house.name}}</li>
     </ul>
     <form>
       <input type="text" placeholder="Add House" v-model="newHouse">
@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
-
 import CREATEHOUSE from '../graphql/CreateHouse.gql';
 import USER from '../graphql/User.gql';
 export default {
@@ -27,12 +25,17 @@ export default {
   methods: {
     async addHouse() {
       // TODO: Add call to GQL.
-      const result = await this.$apollo.mutate({
-        mutation: CREATEHOUSE,
-        variables: {
-          name: this.newHouse,
-        },
-      });
+      const result = await this.$apollo
+        .mutate({
+          mutation: CREATEHOUSE,
+          variables: {
+            name: this.newHouse,
+          },
+        })
+        .then(() => {
+          console.log('hi');
+          this.$apollo.queries.user.refetch();
+        });
     },
   },
 };
