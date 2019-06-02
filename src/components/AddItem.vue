@@ -12,16 +12,18 @@
         >{{house.name}}</option>
       </select>
       <h6>Store</h6>
-      <li v-for="store in stores" :key="`store-${store.id}`">
-        <input
-          type="checkbox"
-          :name="`store-${store.id}`"
-          :id="`store-${store.id}`"
-          :value="store.id"
-          v-model="whichStores"
-        >
-        <label :for="`store-${store.id}`">{{store.name}}</label>
-      </li>
+      <ul>
+        <li v-for="store in stores" :key="`store-${store.id}`">
+          <input
+            type="checkbox"
+            :name="`store-${store.id}`"
+            :id="`store-${store.id}`"
+            :value="store.id"
+            v-model="whichStores"
+          >
+          <label :for="`store-${store.id}`">{{store.name}}</label>
+        </li>
+      </ul>
       <input type="text" placeholder="Item" v-model="newItem">
       <button v-on:click.prevent="addItem" type="submit">Add Item</button>
     </form>
