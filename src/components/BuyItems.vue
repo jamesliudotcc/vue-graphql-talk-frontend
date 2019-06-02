@@ -16,7 +16,7 @@
       </select>
       <ul>
         <li v-for="item in items" :key="`item-${item}`">
-          <input type="checkbox" :value="item.id">
+          <input type="checkbox" :value="item.id" v-model="itemsPurchased">
           {{item.name}}
         </li>
       </ul>
@@ -38,17 +38,17 @@ export default {
     return {
       whichHouse: 0,
       whichStore: 0,
+      itemsPurchased: [],
     };
   },
   computed: {
-    // Only show items when its stores property includes 
+    // Only show items when its stores property includes
     // the id for the store chosen in the dropdown.
     items: function() {
       const allItems = this.user.houses[this.whichHouse].items;
       return allItems.filter(item => {
-        if (item.stores.map(store => store.id).includes(this.whichStore)) {
+        if (item.stores.map(store => store.id).includes(this.whichStore))
           return true;
-        }
       });
     },
   },
