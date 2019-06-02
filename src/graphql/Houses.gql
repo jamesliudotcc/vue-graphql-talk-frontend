@@ -1,0 +1,6 @@
+query {
+  houses {
+    id
+    name
+  }
+}

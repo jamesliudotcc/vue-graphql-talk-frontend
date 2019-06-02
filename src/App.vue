@@ -8,6 +8,7 @@
       <logout v-model="loggedIn"/>
       <secret/>
       <house/>
+      <join-house/>
       <store/>
       <add-item/>
       <purchase-items/>
@@ -17,27 +18,29 @@
 
 <script>
 // import ApolloExample from './components/ApolloExample.vue';
+import AddItem from './components/AddItem.vue';
 import House from './components/House.vue';
-import Register from './components/Register.vue';
+import JoinHouse from './components/JoinHouse.vue';
 import Login from './components/Login.vue';
 import Logout from './components/Logout.vue';
+import PurchaseItems from './components/PurchaseItems.vue';
+import Register from './components/Register.vue';
 import Secret from './components/Secret.vue';
 import Store from './components/Store.vue';
-import AddItem from './components/AddItem.vue';
-import PurchaseItems from './components/PurchaseItems.vue';
 
 export default {
   name: 'app',
   components: {
     // ApolloExample,
+    AddItem,
     House,
+    JoinHouse,
     Login,
     Logout,
+    PurchaseItems,
     Register,
     Secret,
     Store,
-    AddItem,
-    PurchaseItems,
   },
   data() {
     return {

@@ -1,0 +1,6 @@
+mutation joinHouse($house: Int!) {
+  joinHouse(house: $house) {
+    id
+    name
+  }
+}
