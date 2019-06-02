@@ -1,10 +1,13 @@
 <template>
   <div>
     <hr>
-    <div v-show="!showHouseSelector">No houses to join</div>
+
+    <!-- TODO: Create component that decides whether to show no houses to join
+    or the join a house component. v-if and v-for do not mix.-->
 
     <form>
       <h6>Join a House</h6>
+      <div v-if="!showHouseSelector">No houses to join</div>
       <select name="select-house-join" id="select-house-join" v-model="houseToJoin">
         <option
           v-for="house in openHouses"
@@ -53,7 +56,6 @@ export default {
 
   methods: {
     joinHouse() {
-      console.log('hi', this.houseToJoin);
       this.$apollo
         .mutate({
           mutation: JOINHOUSE,

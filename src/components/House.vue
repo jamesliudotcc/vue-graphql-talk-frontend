@@ -35,7 +35,6 @@ export default {
           },
         })
         .then(() => {
-          console.log('hi');
           this.$apollo.queries.user.refetch();
           this.newHouse = '';
         });
