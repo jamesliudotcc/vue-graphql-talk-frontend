@@ -1,0 +1,3 @@
+mutation purchaseItems($house: Int!, $itemIds: [Int]!) {
+  purchaseItems(house: $house, itemIds: $itemIds)
+}

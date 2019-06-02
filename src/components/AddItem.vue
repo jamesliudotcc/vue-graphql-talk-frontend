@@ -25,7 +25,7 @@
         </li>
       </ul>
       <input type="text" placeholder="Item" v-model="newItem">
-      <button v-on:click.prevent="addItem" type="submit">Add Item</button>
+      <button type="submit" v-on:click.prevent="addItem">Add Item</button>
     </form>
   </div>
 </template>

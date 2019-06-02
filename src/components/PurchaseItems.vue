@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hr>Buy Items Component
+    <hr>Purchase Items Component
     <form>
       <h6>House</h6>
       <select name="select-house" id="select-house" v-model="whichHouse">
@@ -20,6 +20,7 @@
           {{item.name}}
         </li>
       </ul>
+      <button type="submit" v-on:click.prevent="purchaseItems">Bought</button>
     </form>
   </div>
 </template>
@@ -27,9 +28,10 @@
 <script>
 import USER from '../graphql/User.gql';
 import STORES from '../graphql/Stores.gql';
+import PURCHASEITEMS from '../graphql/PurchaseItems.gql';
 
 export default {
-  name: 'BuyItems',
+  name: 'PurchaseItems',
   apollo: {
     user: USER,
     stores: STORES,
@@ -42,14 +44,33 @@ export default {
     };
   },
   computed: {
-    // Only show items when its stores property includes
-    // the id for the store chosen in the dropdown.
     items: function() {
       const allItems = this.user.houses[this.whichHouse].items;
-      return allItems.filter(item => {
+      const unpurchasedItems = allItems.filter(item => !item.done);
+
+      // Only show items when its stores property includes
+      // the id for the store chosen in the dropdown.
+      return unpurchasedItems.filter(item => {
         if (item.stores.map(store => store.id).includes(this.whichStore))
           return true;
       });
+    },
+  },
+
+  methods: {
+    purchaseItems() {
+      this.$apollo
+        .mutate({
+          mutation: PURCHASEITEMS,
+          variables: {
+            house: this.whichHouse,
+            itemIds: this.itemsPurchased,
+          },
+        })
+        .then(() => {
+          this.$apollo.queries.user.refetch();
+          this.newItem = '';
+        });
     },
   },
 };

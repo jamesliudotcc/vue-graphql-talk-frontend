@@ -10,7 +10,7 @@
       <house/>
       <store/>
       <add-item/>
-      <buy-items/>
+      <purchase-items/>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ import Logout from './components/Logout.vue';
 import Secret from './components/Secret.vue';
 import Store from './components/Store.vue';
 import AddItem from './components/AddItem.vue';
-import BuyItems from './components/BuyItems.vue';
+import PurchaseItems from './components/PurchaseItems.vue';
 
 export default {
   name: 'app',
@@ -37,7 +37,7 @@ export default {
     Secret,
     Store,
     AddItem,
-    BuyItems,
+    PurchaseItems,
   },
   data() {
     return {

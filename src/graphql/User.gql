@@ -8,6 +8,7 @@ query {
       items {
         id
         name
+        done
         stores {
           id
           name
